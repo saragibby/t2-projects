@@ -6,11 +6,11 @@ AuthenticationController = Ember.ObjectController.extend
   isAuthenticated: Ember.computed.notEmpty('accessToken')
 
   redirectToSignIn: ->
-    _redirectTo "/sign_in"
+    @_redirectTo "/sign_in"
 
   logout: ->
     @set('accessToken', null)
-    _redirectTo "/sign_out"
+    @_redirectTo "/sign_out"
 
   extractAccessToken: ->
     match = location.href.match(/authentication_token=([a-zA-Z0-9_-]+)/)
