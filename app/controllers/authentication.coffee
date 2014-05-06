@@ -1,8 +1,3 @@
-_redirectTo = (url) ->
-  uri = window.ENV.apiHost + url
-  uri += "?return_url=" + escape(location.href)
-  location.href = uri
-
 AuthenticationController = Ember.ObjectController.extend
   init: -> @set('accessToken', localStorage.accessToken)
 
@@ -46,5 +41,11 @@ AuthenticationController = Ember.ObjectController.extend
     )
     person
   ).property('accessToken')
+
+  _redirectTo: (url) ->
+    uri = window.ENV.apiHost + url
+    uri += "?return_url=" + escape(location.href)
+    location.href = uri
+
 
 `export default AuthenticationController`
