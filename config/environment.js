@@ -2,6 +2,7 @@ module.exports = function(environment) {
   var ENV = {
     baseURL: '/',
     locationType: 'auto',
+    navBarPath: '/api/v1/navbar',
     FEATURES: {
       // Here you can enable experimental features on an ember canary build
       // e.g. 'with-controller': true
@@ -23,10 +24,11 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.apiHost = "http://localhost:5000";
   }
 
   if (environment === 'production') {
-
+    ENV.apiHost = "http://t2.neo.com";
   }
 
   return ENV;
