@@ -27,6 +27,10 @@ module.exports = function(environment) {
     ENV.apiHost = "http://localhost:5000";
   }
 
+  if (environment === 'staging') {
+    ENV.apiHost = "http://t2-staging.neo.com";
+  }
+
   if (environment === 'production') {
     ENV.apiHost = "http://t2.neo.com";
   }
