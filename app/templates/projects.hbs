@@ -1,4 +1,7 @@
 {{input value=searchProxy placeholder='Search for projects'}}
+<br/>
+
+{{will-paginate route='projects' data=content}}
 
 <table>
   <thead>
@@ -23,3 +26,4 @@
     {{/each}}
   </tbody>
 </table>
+
