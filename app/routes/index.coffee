@@ -1,1 +1,5 @@
-`export default Ember.Route.extend({});`
+IndexRoute = Ember.Route.extend
+  beforeModel: ->
+    @transitionTo('projects')
+
+`export default IndexRoute`

@@ -25,6 +25,7 @@
     "loom-generators-ember-appkit": "^1.1.1",
 
     "broccoli-coffee": "*",
-    "broccoli-ruby-sass": "*"
+    "broccoli-ruby-sass": "*",
+    "broccoli-file-mover": "*"
   }
 }
