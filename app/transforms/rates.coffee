@@ -1,15 +1,15 @@
-Rates = Ember.Object.extend
-  developer: (-> @['Developer']).property()
-  designer: (-> @['Designer']).property()
-  principal: (-> @['Principal']).property()
-  productManager: (-> @['Product Manager']).property()
+Rates = Ember.ObjectProxy.extend
+  developer: (-> @content['Developer']).property()
+  designer: (-> @content['Designer']).property()
+  principal: (-> @content['Principal']).property()
+  productManager: (-> @content['Product Manager']).property()
 
 RatesTransform = DS.Transform.extend
   serialize: (object) ->
-    JSON.stringify(object)
+    JSON.stringify(object.get("content"))
 
   deserialize: (json) ->
-    Rates.create(json)
+    Rates.create(content: json)
 
 `export default RatesTransform`
 
