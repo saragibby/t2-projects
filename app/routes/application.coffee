@@ -6,4 +6,6 @@ ApplicationRoute = Ember.Route.extend
       transition.abort()
       auth.redirectToSignIn()
 
+    @store.find("office")
+
 `export default ApplicationRoute`

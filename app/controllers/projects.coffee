@@ -1,8 +1,9 @@
 ProjectsController = Ember.ArrayController.extend
-  queryParams: ['page', 'search']
+  queryParams: ['page', 'search', 'office_id']
   page: 1
   search: ''
   _searchProxy: ''
+  office_id: undefined
 
   searchObserver: (->
     Ember.run.debounce(=>
@@ -16,5 +17,9 @@ ProjectsController = Ember.ArrayController.extend
     else
       @get('search') || @_searchProxy
   ).property('search')
+
+  offices: (->
+    @store.all('office')
+  ).property()
 
 `export default ProjectsController`

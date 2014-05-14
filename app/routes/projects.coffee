@@ -4,8 +4,13 @@ ProjectsRoute = Ember.Route.extend
       refreshModel: true
     page:
       refreshModel: true
+    office_id:
+      refreshModel: true
 
   model: (params) ->
-    @store.find('projectListItem', params)
+    # TODO: Remove when fixed. (PR #4571)
+    newParams = {}
+    newParams[key] = value for key, value of params when value != "null" && value != "undefined"
+    @store.find('projectListItem', newParams)
 
 `export default ProjectsRoute`
