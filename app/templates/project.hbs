@@ -1,0 +1,35 @@
+{{#link-to 'projects'}}Back to list{{/link-to}}
+<h2>{{name}}</h2>
+
+Selling:
+{{sellingOffice.name}}<br>
+
+Staffing:
+<ul>
+  {{#each office in offices}}
+    <li>{{office.name}}</li>
+  {{/each}}
+</ul>
+
+Peeps:
+<ul>
+  {{#each person in people}}
+    <li>{{person.name}}</li>
+  {{/each}}
+</ul>
+
+Rates:
+<ul>
+  {{#if rates.developer}}
+    <li>Developer: {{rates.developer}}</li>
+  {{/if}}
+  {{#if rates.designer}}
+    <li>Designer: {{rates.designer}}</li>
+  {{/if}}
+  {{#if rates.principal}}
+    <li>Principal: {{rates.principal}}</li>
+  {{/if}}
+  {{#if rates.productManager}}
+    <li>Product Manager: {{rates.productManager}}</li>
+  {{/if}}
+</ul>
