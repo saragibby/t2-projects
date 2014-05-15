@@ -18,8 +18,4 @@ ProjectsController = Ember.ArrayController.extend
       @get('search') || @_searchProxy
   ).property('search')
 
-  offices: (->
-    @store.all('office')
-  ).property()
-
 `export default ProjectsController`

@@ -1,8 +1,8 @@
-{{#link-to 'projects'}}Back to list{{/link-to}}
-<br>
-{{input value=name}} <br/>
+{{#link-to 'projects'}}Back to list{{/link-to}} <br>
 
-{{input value=description}} <br/>
+Name: {{input value=name}} <br/>
+
+Description: {{input value=description}} <br/>
 
 <label>
   {{input checked=provisional type="checkbox"}}
@@ -16,4 +16,15 @@
 </label>
 <br/>
 
-{{edit-date value=startDate}} - {{edit-date value=endDate}} <br/>
+Dates: {{edit-date value=startDate}} - {{edit-date value=endDate}} <br/>
+
+Selling Office: {{office-select value=sellingOffice.id}} <br/> <br/>
+
+{{! TODO: staffing offices}}
+
+Rates: <br/>
+{{! TODO: make daily}}
+Developer: {{input value=rates.developer}} <br/>
+Designer: {{input value=rates.designer}}<br/>
+Principal: {{input value=rates.principal}}<br/>
+Product Mgr: {{input value=rates.productManager}}<br/>
