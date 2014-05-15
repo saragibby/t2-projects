@@ -1,0 +1,19 @@
+{{#link-to 'projects'}}Back to list{{/link-to}}
+<br>
+{{input value=name}} <br/>
+
+{{input value=description}} <br/>
+
+<label>
+  {{input checked=provisional type="checkbox"}}
+  Provisional
+</label>
+<br/>
+
+<label>
+{{input checked=true type="checkbox"}}
+  Investment Fridays
+</label>
+<br/>
+
+{{edit-date value=startDate}} - {{edit-date value=endDate}} <br/>
