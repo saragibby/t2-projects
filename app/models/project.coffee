@@ -1,3 +1,5 @@
+`import Rates from 't2-projects/utils/rates'`
+
 Project = DS.Model.extend
   name: DS.attr('string')
   vacation: DS.attr('boolean')
@@ -9,7 +11,7 @@ Project = DS.Model.extend
   offices: DS.hasMany('office')
   people: DS.hasMany('person')
 
-  rates: DS.attr('rates')
+  rates: DS.attr('rates', defaultValue: (-> Rates.create(content:{})))
 
 `export default Project`
 

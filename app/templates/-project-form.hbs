@@ -1,0 +1,38 @@
+{{#link-to 'projects'}}Back to list{{/link-to}} <br>
+
+Name: {{input value=name}} <br/>
+
+Description: {{input value=description}} <br/>
+
+<label>
+  {{input checked=provisional type="checkbox"}}
+  Provisional
+</label>
+<br/>
+
+<label>
+{{input checked=true type="checkbox"}}
+  Investment Fridays
+</label>
+<br/>
+
+Dates: {{edit-date value=startDate}} - {{edit-date value=endDate}} <br/>
+
+Staffing Office: <br/>
+{{#each officeCheckbox in selectedOffices}}
+  <label>
+    {{input checked=officeCheckbox.selected type="checkbox"}}
+    {{officeCheckbox.name}}
+  </label>
+{{/each}}
+<br/>
+
+Rates: <br/>
+{{! TODO: make daily}}
+Developer: {{input value=rates.developer}} <br/>
+Designer: {{input value=rates.designer}}<br/>
+Principal: {{input value=rates.principal}}<br/>
+Product Mgr: {{input value=rates.productManager}}<br/>
+
+<button {{action 'save'}}>Save</button>
+<button {{action 'cancel'}}>Cancel</button>

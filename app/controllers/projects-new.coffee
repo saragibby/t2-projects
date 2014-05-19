@@ -1,6 +1,6 @@
 `import SelectableOffice from 't2-projects/utils/selectable-office'`
 
-ProjectEditController = Ember.ObjectController.extend
+ProjectsNewController = Ember.ObjectController.extend
 
   selectedOffices: (->
     @store.all('office').map (office) =>
@@ -19,4 +19,4 @@ ProjectEditController = Ember.ObjectController.extend
     cancel: ->
       @transitionToRoute('projects')
 
-`export default ProjectEditController`
+`export default ProjectsNewController`

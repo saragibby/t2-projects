@@ -2,8 +2,9 @@
 <br/>
 
 {{will-paginate route='projects' data=content}}
-
 {{office-select value=office_id prompt="Select an office"}}
+
+{{#link-to 'projects-new'}} New Project {{/link-to}}
 
 <table>
   <thead>
@@ -11,8 +12,6 @@
       <th>Name</th>
       <th>Start Date</th>
       <th>End Date</th>
-      <th>Selling Office</th>
-      <th>Revenue Thingie</th>
     </tr>
   </thead>
 
@@ -20,10 +19,8 @@
     {{#each project in content}}
     <tr>
       <td> {{#link-to 'project' project.id}}{{project.name}}{{/link-to}} </td>
-      <td> {{project.startDate}} </td>
-      <td> {{project.endDate}} </td>
-      <td> {{project.sellingOffice.name}} </td>
-      <td> $billz </td>
+      <td> {{format-date project.startDate}} </td>
+      <td> {{format-date project.endDate}} </td>
     </tr>
     {{/each}}
   </tbody>
