@@ -6,7 +6,6 @@ Project = DS.Model.extend
 
   startDate: DS.attr('date')
   endDate: DS.attr('date')
-  sellingOffice: DS.belongsTo('office')
   offices: DS.hasMany('office')
   people: DS.hasMany('person')
 

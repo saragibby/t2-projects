@@ -18,9 +18,14 @@ Description: {{input value=description}} <br/>
 
 Dates: {{edit-date value=startDate}} - {{edit-date value=endDate}} <br/>
 
-Selling Office: {{office-select value=sellingOffice.id}} <br/> <br/>
-
-{{! TODO: staffing offices}}
+Staffing Office: <br/>
+{{#each officeCheckbox in selectedOffices}}
+  <label>
+    {{input checked=officeCheckbox.selected type="checkbox"}}
+    {{officeCheckbox.name}}
+  </label>
+{{/each}}
+<br/>
 
 Rates: <br/>
 {{! TODO: make daily}}
@@ -28,3 +33,5 @@ Developer: {{input value=rates.developer}} <br/>
 Designer: {{input value=rates.designer}}<br/>
 Principal: {{input value=rates.principal}}<br/>
 Product Mgr: {{input value=rates.productManager}}<br/>
+
+<button {{action 'save'}}>Save</button>
