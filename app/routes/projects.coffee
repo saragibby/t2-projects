@@ -6,6 +6,8 @@ ProjectsRoute = Ember.Route.extend
       refreshModel: true
     office_id:
       refreshModel: true
+    show_archived:
+      refreshModel: true
 
   model: (params) ->
     # TODO: Remove when fixed. (PR #4571)

@@ -1,10 +1,12 @@
 ProjectsController = Ember.ArrayController.extend
-  queryParams: ['page', 'search', 'office_id']
+  queryParams: ['page', 'search', 'office_id', 'show_archived']
   page: 1
   search: ''
   office_id: undefined
+  show_archived: false
   _searchProxy: ''
   _officeProxy: undefined
+  _archivedProxy: false
 
   searchObserver: (->
     Ember.run.debounce(=>
@@ -15,6 +17,10 @@ ProjectsController = Ember.ArrayController.extend
   officeObserver: (->
     @transitionToRoute({queryParams: {office_id: @get('officeProxy'), page: 1}})
   ).observes('officeProxy')
+
+  archivedObserver: (->
+    @transitionToRoute({queryParams: {page: 1, show_archived: @get('archivedProxy')}})
+  ).observes('archivedProxy')
 
   searchProxy: ((key, value, oldValue) ->
     if arguments.length > 1
@@ -29,5 +35,12 @@ ProjectsController = Ember.ArrayController.extend
     else
       @get('office_id') || @_officeProxy
   ).property('office_id')
+
+  archivedProxy: ((key, value, oldValue) ->
+    if arguments.length > 1
+      @_archivedProxy = value
+    else
+      @get('show_archived') || @_archivedProxy
+  ).property('show_archived')
 
 `export default ProjectsController`
