@@ -16,7 +16,7 @@
 
     "moment": "*",
     "bourbon": "~3.1.8",
-    "neat": "*",
+    "neat": "1.6.0",
     "pikaday": "~1.2.0"
   },
   "resolutions": {
