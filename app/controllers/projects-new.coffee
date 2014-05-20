@@ -7,7 +7,7 @@ ProjectsNewController = Ember.ObjectController.extend
       SelectableOffice.create
         project: @get('model')
         office: office
-  ).property()
+  ).property('model')
 
   actions:
 
