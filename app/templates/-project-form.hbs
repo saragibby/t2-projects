@@ -28,11 +28,74 @@ Staffing Office: <br/>
 <br/>
 
 Rates: <br/>
-{{! TODO: make daily}}
-Developer: {{input value=rates.developer}} <br/>
-Designer: {{input value=rates.designer}}<br/>
-Principal: {{input value=rates.principal}}<br/>
-Product Mgr: {{input value=rates.productManager}}<br/>
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Rate</th>
+      <th>Typical Allocation</th>
+      <th>Typical Staff</th>
+      <th>Equivalent Hourly</th>
+      <th>Equivalent Day Rate</th>
+      <th>Typical Biweekly Invoice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Developer</td>
+      {{#with typicalInvoice.developer}}
+        <td>{{input value=rate}}</td>
+        <td>{{input value=allocationPercent}}</td>
+        <td>{{input value=count}}</td>
+        <td>{{equivalentHourlyRate}}</td>
+        <td>{{equivalentDayRate}}</td>
+        <td>{{biweeklyInvoice}}</td>
+      {{/with}}
+    </tr>
+    <tr>
+      <td>Designer</td>
+      {{#with typicalInvoice.designer}}
+        <td>{{input value=rate}}</td>
+        <td>{{input value=allocationPercent}}</td>
+        <td>{{input value=count}}</td>
+        <td>{{equivalentHourlyRate}}</td>
+        <td>{{equivalentDayRate}}</td>
+        <td>{{biweeklyInvoice}}</td>
+      {{/with}}
+    </tr>
+    <tr>
+      <td>Principal</td>
+      {{#with typicalInvoice.principal}}
+        <td>{{input value=rate}}</td>
+        <td>{{input value=allocationPercent}}</td>
+        <td>{{input value=count}}</td>
+        <td>{{equivalentHourlyRate}}</td>
+        <td>{{equivalentDayRate}}</td>
+        <td>{{biweeklyInvoice}}</td>
+      {{/with}}
+    </tr>
+    <tr>
+      <td>Product Manager</td>
+      {{#with typicalInvoice.productManager}}
+        <td>{{input value=rate}}</td>
+        <td>{{input value=allocationPercent}}</td>
+        <td>{{input value=count}}</td>
+        <td>{{equivalentHourlyRate}}</td>
+        <td>{{equivalentDayRate}}</td>
+        <td>{{biweeklyInvoice}}</td>
+      {{/with}}
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Total:</td>
+      <td>{{typicalInvoice.total}}</td>
+    </tr>
+  </tbody>
+</table>
 
 <button {{action 'save'}}>Save</button>
 <button {{action 'cancel'}}>Cancel</button>

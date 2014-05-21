@@ -6,8 +6,8 @@ contentAttr = (name) ->
 
 Rates = Ember.ObjectProxy.extend
   developer: contentAttr('Developer')
-  designer: (-> @content['Designer']).property()
-  principal: (-> @content['Principal']).property()
-  productManager: (-> @content['Product Manager']).property()
+  designer: contentAttr('Designer')
+  principal: contentAttr('Principal')
+  productManager: contentAttr('Product Manager')
 
 `export default Rates`

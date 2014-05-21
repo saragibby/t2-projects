@@ -1,4 +1,5 @@
 `import Rates from 't2-projects/utils/rates'`
+`import TypicalInvoice from 't2-projects/utils/typical-invoice'`
 
 Project = DS.Model.extend
   name: DS.attr('string')
@@ -13,6 +14,10 @@ Project = DS.Model.extend
   people: DS.hasMany('person')
 
   rates: DS.attr('rates', defaultValue: (-> Rates.create(content:{})))
+
+  typicalInvoice: (->
+    TypicalInvoice.create(project: @)
+  ).property('rates')
 
 `export default Project`
 
