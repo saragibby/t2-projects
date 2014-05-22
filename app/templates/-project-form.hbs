@@ -1,6 +1,16 @@
+{{#unless errors.isEmpty}}
+  {{#each error in errors}}
+    {{error.message}}
+  {{/each}}
+{{/unless}}
+
 {{#link-to 'projects'}}Back to list{{/link-to}} <br>
 
-Name: {{input value=name}} <br/>
+Name:
+{{#each error in errors.name}}
+  <span style="color: red;">{{error.message}}</span>
+{{/each}}
+{{input value=name}} <br/>
 
 Description: {{input value=description}} <br/>
 
