@@ -1,16 +1,19 @@
-<a href="{{unbound ENV.apiHost}}/reports/revenue.csv">Download Revenue Report</a>
 <br/>
 <br/>
-{{input value=searchProxy placeholder='Search for projects'}}
-<br/>
+<!-- Let's pretend that the projects-across-offices-bar-graph-is-going-to-be-here-in-the-future -->
 
-{{will-paginate route='projects' data=content}}
-<label>
-  {{input checked=archivedProxy type="checkbox"}}Show Archived
-</label>
-{{office-select value=officeProxy prompt="Select an office"}}
+{{input value=searchProxy placeholder='Search for projects' class='searchBar'}}<p class="searchIcon">&#128269;</p>
+ <button class="newProject">{{#link-to 'projects-new'}} Add New Project {{/link-to}}</button>
 
-{{#link-to 'projects-new'}} New Project {{/link-to}}
+
+ <div class="hangRight">{{office-select value=officeProxy prompt="Select an office" }}</div>
+ <label class="hangRight">
+   {{input checked=archivedProxy type="checkbox"}}Show Archived
+ </label>
+
+ <div class="hangRight cleared">{{will-paginate route='projects' data=content}}</div>
+
+<br/>
 
 <table>
   <thead>
@@ -32,5 +35,9 @@
   </tbody>
 </table>
 
-{{will-paginate route='projects' data=content}}
-{{office-select value=officeProxy prompt="Select an office"}}
+<br/>
+
+<div class="hangLeft"><a href="{{unbound ENV.apiHost}}/reports/revenue.csv">Download Revenue Report</a></div>
+
+<div class="hangRight">{{will-paginate route='projects' data=content}}</div><br/><br/>
+<div class="hangRight cleared">{{office-select value=officeProxy prompt="Select an office"}}</div>
