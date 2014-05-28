@@ -29,7 +29,7 @@
 
 <label class="weeksInvoiced">
 <span>Number of Weeks Invoiced</span>
-{{input type="text" value="2"}}
+{{input value=numWeeksPerInvoice placeholder="n/a"}}
 </label>
 
 </div>
@@ -75,7 +75,7 @@
         <div class="tableCell">Typical Staff Count</div>
         <div class="tableCell">Equivalent Hour Rate</div>
         <div class="tableCell">Equivalent Day Rate</div>
-        <div class="tableCell">Typical Biweekly Invoice</div>
+        <div class="tableCell">Typical Invoice</div>
       </div>
       <div class="tableRow">
         <div class="tableCell">Developer</div>
@@ -85,7 +85,7 @@
         <div class="tableCell">{{input value=count placeholder="n/a"}}</div>
         <div class="tableCell"><span>{{equivalentHourlyRate}}</span></div>
         <div class="tableCell"><span>{{equivalentDayRate}}</span></div>
-        <div class="tableCell"><span>{{biweeklyInvoice}}</span></div>
+        <div class="tableCell"><span>{{perInvoice}}</span></div>
         {{/with}}
       </div>
       <div class="tableRow tableHeader">
@@ -95,7 +95,7 @@
         <div class="tableCell">Typical Staff Count</div>
         <div class="tableCell">Equivalent Hour Rate</div>
         <div class="tableCell">Equivalent Day Rate</div>
-        <div class="tableCell">Typical Biweekly Invoice</div>
+        <div class="tableCell">Typical Invoice</div>
       </div>
       <div class="tableRow">
         <div class="tableCell">Designer</div>
@@ -105,7 +105,7 @@
         <div class="tableCell">{{input value=count placeholder="n/a"}}</div>
         <div class="tableCell"><span>{{equivalentHourlyRate}}</span></div>
         <div class="tableCell"><span>{{equivalentDayRate}}</span></div>
-        <div class="tableCell"><span>{{biweeklyInvoice}}</span></div>
+        <div class="tableCell"><span>{{perInvoice}}</span></div>
         {{/with}}
       </div>
       <div class="tableRow tableHeader">
@@ -115,7 +115,7 @@
         <div class="tableCell">Typical Staff Count</div>
         <div class="tableCell">Equivalent Hour Rate</div>
         <div class="tableCell">Equivalent Day Rate</div>
-        <div class="tableCell">Typical Biweekly Invoice</div>
+        <div class="tableCell">Typical Invoice</div>
       </div>
       <div class="tableRow">
         <div class="tableCell">Principal</div>
@@ -125,7 +125,7 @@
         <div class="tableCell">{{input value=count placeholder="n/a"}}</div>
         <div class="tableCell"><span>{{equivalentHourlyRate}}</span></div>
         <div class="tableCell"><span>{{equivalentDayRate}}</span></div>
-        <div class="tableCell"><span>{{biweeklyInvoice}}</span></div>
+        <div class="tableCell"><span>{{perInvoice}}</span></div>
         {{/with}}
       </div>
       <div class="tableRow tableHeader productManager">
@@ -135,7 +135,7 @@
         <div class="tableCell">Typical Staff Count</div>
         <div class="tableCell">Equivalent Hour Rate</div>
         <div class="tableCell">Equivalent Day Rate</div>
-        <div class="tableCell">Typical Biweekly Invoice</div>
+        <div class="tableCell">Typical Invoice</div>
       </div>
       <div class="tableRow">
         <div class="tableCell">Product Manager</div>
@@ -145,7 +145,7 @@
         <div class="tableCell">{{input value=count placeholder="n/a"}}</div>
         <div class="tableCell"><span>{{equivalentHourlyRate}}</span></div>
         <div class="tableCell"><span>{{equivalentDayRate}}</span></div>
-        <div class="tableCell"><span>{{biweeklyInvoice}}</span></div>
+        <div class="tableCell"><span>{{perInvoice}}</span></div>
         {{/with}}
       </div>
       <div class="tableRow totalRow">

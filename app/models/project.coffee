@@ -2,16 +2,17 @@
 `import TypicalInvoice from 't2-projects/utils/typical-invoice'`
 
 Project = DS.Model.extend
+  startDate: DS.attr('date')
+  endDate: DS.attr('date')
+  offices: DS.hasMany('office')
+  people: DS.hasMany('person')
+
   name: DS.attr('string')
   vacation: DS.attr('boolean')
   billable: DS.attr('boolean', {defaultValue: true})
   provisional: DS.attr('boolean')
   investmentFridays: DS.attr('boolean', {defaultValue: true})
-
-  startDate: DS.attr('date')
-  endDate: DS.attr('date')
-  offices: DS.hasMany('office')
-  people: DS.hasMany('person')
+  numWeeksPerInvoice: DS.attr('number', {defaultValue: 2})
 
   rates: DS.attr 'roleMap', defaultValue: ->
     RoleMap.create
