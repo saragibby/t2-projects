@@ -1,4 +1,4 @@
-`import Rates from 't2-projects/utils/rates'`
+`import RoleMap from 't2-projects/utils/role-map'`
 `import TypicalInvoice from 't2-projects/utils/typical-invoice'`
 
 Project = DS.Model.extend
@@ -6,18 +6,40 @@ Project = DS.Model.extend
   vacation: DS.attr('boolean')
   billable: DS.attr('boolean', {defaultValue: true})
   provisional: DS.attr('boolean')
-  investmentFridays: DS.attr('boolean')
+  investmentFridays: DS.attr('boolean', {defaultValue: true})
 
   startDate: DS.attr('date')
   endDate: DS.attr('date')
   offices: DS.hasMany('office')
   people: DS.hasMany('person')
 
-  rates: DS.attr('rates', defaultValue: (-> Rates.create(content:{})))
+  rates: DS.attr 'roleMap', defaultValue: ->
+    RoleMap.create
+      content:
+        'Developer': 7000
+        'Designer': 7000
+        'Principal': 14000
+        'Product Manager': 7000
+
+  typicalCounts: DS.attr 'roleMap', defaultValue: ->
+    RoleMap.create
+      content:
+        'Developer': 2
+        'Designer': 1
+        'Principal': 1
+        'Product Manager': 0
+
+  typicalAllocationPercentages: DS.attr 'roleMap', defaultValue: ->
+    RoleMap.create
+      content:
+        'Developer': 100
+        'Designer': 100
+        'Principal': 50
+        'Product Manager': 100
 
   typicalInvoice: (->
     TypicalInvoice.create(project: @)
-  ).property('rates')
+  ).property('rates', 'typicalCounts', 'typicalAllocationPercentages')
 
 `export default Project`
 

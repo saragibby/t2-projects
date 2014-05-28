@@ -4,10 +4,10 @@ contentAttr = (name) ->
     @get('content')[name]
   ).property()
 
-Rates = Ember.ObjectProxy.extend
+RoleMap = Ember.ObjectProxy.extend
   developer: contentAttr('Developer')
   designer: contentAttr('Designer')
   principal: contentAttr('Principal')
   productManager: contentAttr('Product Manager')
 
-`export default Rates`
+`export default RoleMap`

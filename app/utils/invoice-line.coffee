@@ -1,9 +1,6 @@
 InvoiceLine = Ember.Object.extend
   project: null
-
   key: ''
-  allocationPercent: 100
-  count: 1
 
   investmentFridays: Ember.computed.alias('project.investmentFridays')
 
@@ -13,6 +10,20 @@ InvoiceLine = Ember.Object.extend
       @set(property, value)
     @get(property)
   ).property('project.rates', 'key')
+
+  allocationPercent: ((_, value) ->
+    property = "project.typicalAllocationPercentages.#{@get('key')}"
+    if arguments.length > 1
+      @set(property, value)
+    @get(property)
+  ).property('project.typicalAllocationPercentages', 'key')
+
+  count: ((_, value) ->
+    property = "project.typicalCounts.#{@get('key')}"
+    if arguments.length > 1
+      @set(property, value)
+    @get(property)
+  ).property('project.typicalCounts', 'key')
 
   equivalentDayRate: (->
     rate = @get('rate')
