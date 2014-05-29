@@ -28,7 +28,7 @@
 </label>
 
 <label class="weeksInvoiced">
-<span>Number of Weeks Invoiced</span>
+<span>Weeks per Invoice</span>
 {{input value=numWeeksPerInvoice type="number" placeholder="n/a"}}
 </label>
 
@@ -38,8 +38,7 @@
   <span class="date">{{edit-date value=startDate}} <span style="display: inline-block; width: 10%;  padding: 0.5rem 0; float: left; text-align: center;">–</span> {{edit-date value=endDate}}</span> <br/>
 
   <h2>Selling Office</h2>
-  {{! TODO: Hook up once api stores this data}}
-  {{office-select value="" prompt="Select an office"}}
+  {{office-select selection=sellingOffice prompt="Select an office"}}
 
   <h2>Staffing Offices</h2>
   <div class="officeList">

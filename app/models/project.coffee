@@ -2,11 +2,12 @@
 `import TypicalInvoice from 't2-projects/utils/typical-invoice'`
 
 Project = DS.Model.extend
-  startDate: DS.attr('date')
-  endDate: DS.attr('date')
   offices: DS.hasMany('office')
   people: DS.hasMany('person')
+  sellingOffice: DS.belongsTo('office')
 
+  startDate: DS.attr('date')
+  endDate: DS.attr('date')
   name: DS.attr('string')
   vacation: DS.attr('boolean')
   billable: DS.attr('boolean', {defaultValue: true})
