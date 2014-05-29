@@ -2,7 +2,7 @@
 <br/>
 <!-- Let's pretend that the projects-across-offices-bar-graph-is-going-to-be-here-in-the-future -->
 
-{{input value=searchProxy placeholder='Search for projects' class='searchBar'}}<p class="searchIcon">&#128269;</p>
+{{input value=searchProxy placeholder='Search for projects' class='searchBar' action='search'}}<p {{action 'search'}} class="searchIcon">&#128269;</p>
  <button class="newProject">{{#link-to 'projects-new'}} Add New Project {{/link-to}}</button>
 
 
