@@ -29,7 +29,7 @@
 
 <label class="weeksInvoiced">
 <span>Number of Weeks Invoiced</span>
-{{input type="text" value="2"}}
+{{input value=numWeeksPerInvoice type="number" placeholder="n/a"}}
 </label>
 
 </div>
@@ -38,17 +38,8 @@
   <span class="date">{{edit-date value=startDate}} <span style="display: inline-block; width: 10%;  padding: 0.5rem 0; float: left; text-align: center;">–</span> {{edit-date value=endDate}}</span> <br/>
 
   <h2>Selling Office</h2>
-  <select name="select_element">
-    <option value="1">Cincinnati</option>
-    <option value="2">Columbus</option>
-    <option value="3">Dublin</option>
-    <option value="4">Edinburgh</option>
-    <option value="5">Montevideo</option>
-    <option value="6">New York</option>
-    <option value="7">San Francisco</option>
-    <option value="8">Singapore</option>
-    <option value="9">Headquarters</option>
-  </select>
+  {{! TODO: Hook up once api stores this data}}
+  {{office-select value="" prompt="Select an office"}}
 
   <h2>Staffing Offices</h2>
   <div class="officeList">
@@ -75,37 +66,17 @@
         <div class="tableCell">Typical Staff Count</div>
         <div class="tableCell">Equivalent Hour Rate</div>
         <div class="tableCell">Equivalent Day Rate</div>
-        <div class="tableCell">Typical Biweekly Invoice</div>
+        <div class="tableCell">Typical Invoice</div>
       </div>
       <div class="tableRow">
         <div class="tableCell">Developer</div>
-          <div class="tableCell">{{input value=rates.developer}}</div>
-          {{#with typicalInvoice.developer}}
-          <div class="tableCell">{{input value=allocationPercent}}</div>
-          <div class="tableCell">{{input value=count}}</div>
-          <div class="tableCell"><span>{{equivalentHourlyRate}}</span></div>
-          <div class="tableCell"><span>{{equivalentDayRate}}</span></div>
-          <div class="tableCell"><span>{{biweeklyInvoice}}</span></div>
-          {{/with}}
-      </div>
-      <div class="tableRow tableHeader">
-        <div class="tableCell">Role</div>
-        <div class="tableCell">Weekly @ 100% Allocation</div>
-        <div class="tableCell">Typical Allocation %</div>
-        <div class="tableCell">Typical Staff Count</div>
-        <div class="tableCell">Equivalent Hour Rate</div>
-        <div class="tableCell">Equivalent Day Rate</div>
-        <div class="tableCell">Typical Biweekly Invoice</div>
-      </div>
-      <div class="tableRow">
-        <div class="tableCell">Designer</div>
-        <div class="tableCell">{{input value=rates.designer}}</div>
-        {{#with typicalInvoice.designer}}
-        <div class="tableCell">{{input value=allocationPercent}}</div>
-        <div class="tableCell">{{input value=count}}</div>
+        {{#with typicalInvoice.developer}}
+        <div class="tableCell">{{input value=rate type="number" placeholder="n/a"}}</div>
+        <div class="tableCell">{{input value=allocationPercent type="number" placeholder="n/a"}}</div>
+        <div class="tableCell">{{input value=count type="number" placeholder="n/a"}}</div>
         <div class="tableCell"><span>{{equivalentHourlyRate}}</span></div>
         <div class="tableCell"><span>{{equivalentDayRate}}</span></div>
-        <div class="tableCell"><span>{{biweeklyInvoice}}</span></div>
+        <div class="tableCell"><span>{{perInvoice}}</span></div>
         {{/with}}
       </div>
       <div class="tableRow tableHeader">
@@ -115,17 +86,37 @@
         <div class="tableCell">Typical Staff Count</div>
         <div class="tableCell">Equivalent Hour Rate</div>
         <div class="tableCell">Equivalent Day Rate</div>
-        <div class="tableCell">Typical Biweekly Invoice</div>
+        <div class="tableCell">Typical Invoice</div>
+      </div>
+      <div class="tableRow">
+        <div class="tableCell">Designer</div>
+        {{#with typicalInvoice.designer}}
+        <div class="tableCell">{{input value=rate type="number" placeholder="n/a"}}</div>
+        <div class="tableCell">{{input value=allocationPercent type="number" placeholder="n/a"}}</div>
+        <div class="tableCell">{{input value=count type="number" placeholder="n/a"}}</div>
+        <div class="tableCell"><span>{{equivalentHourlyRate}}</span></div>
+        <div class="tableCell"><span>{{equivalentDayRate}}</span></div>
+        <div class="tableCell"><span>{{perInvoice}}</span></div>
+        {{/with}}
+      </div>
+      <div class="tableRow tableHeader">
+        <div class="tableCell">Role</div>
+        <div class="tableCell">Weekly @ 100% Allocation</div>
+        <div class="tableCell">Typical Allocation %</div>
+        <div class="tableCell">Typical Staff Count</div>
+        <div class="tableCell">Equivalent Hour Rate</div>
+        <div class="tableCell">Equivalent Day Rate</div>
+        <div class="tableCell">Typical Invoice</div>
       </div>
       <div class="tableRow">
         <div class="tableCell">Principal</div>
-        <div class="tableCell">{{input value=rates.principal}}</div>
         {{#with typicalInvoice.principal}}
-        <div class="tableCell">{{input value=allocationPercent}}</div>
-        <div class="tableCell">{{input value=count}}</div>
+        <div class="tableCell">{{input value=rate type="number" placeholder="n/a"}}</div>
+        <div class="tableCell">{{input value=allocationPercent type="number" placeholder="n/a"}}</div>
+        <div class="tableCell">{{input value=count type="number" placeholder="n/a"}}</div>
         <div class="tableCell"><span>{{equivalentHourlyRate}}</span></div>
         <div class="tableCell"><span>{{equivalentDayRate}}</span></div>
-        <div class="tableCell"><span>{{biweeklyInvoice}}</span></div>
+        <div class="tableCell"><span>{{perInvoice}}</span></div>
         {{/with}}
       </div>
       <div class="tableRow tableHeader productManager">
@@ -135,17 +126,17 @@
         <div class="tableCell">Typical Staff Count</div>
         <div class="tableCell">Equivalent Hour Rate</div>
         <div class="tableCell">Equivalent Day Rate</div>
-        <div class="tableCell">Typical Biweekly Invoice</div>
+        <div class="tableCell">Typical Invoice</div>
       </div>
       <div class="tableRow">
         <div class="tableCell">Product Manager</div>
-        <div class="tableCell">{{input value=rates.productManager}}</div>
         {{#with typicalInvoice.productManager}}
-        <div class="tableCell">{{input value=allocationPercent}}</div>
-        <div class="tableCell">{{input value=count}}</div>
+        <div class="tableCell">{{input value=rate type="number" placeholder="n/a"}}</div>
+        <div class="tableCell">{{input value=allocationPercent type="number" placeholder="n/a"}}</div>
+        <div class="tableCell">{{input value=count type="number" placeholder="n/a"}}</div>
         <div class="tableCell"><span>{{equivalentHourlyRate}}</span></div>
         <div class="tableCell"><span>{{equivalentDayRate}}</span></div>
-        <div class="tableCell"><span>{{biweeklyInvoice}}</span></div>
+        <div class="tableCell"><span>{{perInvoice}}</span></div>
         {{/with}}
       </div>
       <div class="tableRow totalRow">

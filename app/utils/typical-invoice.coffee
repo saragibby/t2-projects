@@ -1,6 +1,6 @@
 `import InvoiceLine from 't2-projects/utils/invoice-line'`
 
-invoiceKeys = [ 'developer.biweeklyInvoice', 'designer.biweeklyInvoice', 'principal.biweeklyInvoice', 'productManager.biweeklyInvoice']
+invoiceKeys = [ 'developer.perInvoice', 'designer.perInvoice', 'principal.perInvoice', 'productManager.perInvoice']
 
 TypicalInvoice = Ember.Object.extend
   project: null
