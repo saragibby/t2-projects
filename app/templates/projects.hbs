@@ -21,6 +21,9 @@
       <th>Name</th>
       <th>Start Date</th>
       <th>End Date</th>
+      <th>Provisional</th>
+      <th>Investment Fridays</th>
+      <th>Offices</th>
     </tr>
   </thead>
 
@@ -30,6 +33,9 @@
       <td> {{#link-to 'project' project.id}}{{project.name}}{{/link-to}} </td>
       <td> {{format-date project.startDate}} </td>
       <td> {{format-date project.endDate}} </td>
+      <td> {{check-mark project.provisional}} </td>
+      <td> {{check-mark project.investmentFridays}} </td>
+      <td> {{staffing-offices project}} </td>
     </tr>
     {{/each}}
   </tbody>
