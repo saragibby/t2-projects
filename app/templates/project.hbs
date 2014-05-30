@@ -3,6 +3,15 @@
 
 {{#link-to 'project-edit' model}}Edit{{/link-to}} <br/>
 
+
+{{#if model.archived}}
+  <button {{action 'toggleArchived'}}>Unarchive</button>
+{{else}}
+  <button {{action 'toggleArchived'}}>Archive</button>
+{{/if}}
+
+<br/>
+
 Staffing:
 <ul>
   {{#each office in offices}}
