@@ -1,9 +1,13 @@
+`import SearchFilter from 't2-projects/utils/search-filter'`
+
 ProjectsController = Ember.ArrayController.extend
-  queryParams: ['page', 'search', 'office_id', 'show_archived']
+  queryParams: ['page', 'search', 'office_id', 'archived']
+
   page: 1
   search: ''
   office_id: undefined
-  show_archived: false
+  archived: false
+
   _searchProxy: ''
   _officeProxy: undefined
   _archivedProxy: false
@@ -13,7 +17,7 @@ ProjectsController = Ember.ArrayController.extend
   ).observes('officeProxy')
 
   archivedObserver: (->
-    @transitionToRoute({queryParams: {page: 1, show_archived: @get('archivedProxy')}})
+    @transitionToRoute({queryParams: {page: 1, archived: @get('archivedProxy')}})
   ).observes('archivedProxy')
 
   searchProxy: ((key, value, oldValue) ->
@@ -34,12 +38,26 @@ ProjectsController = Ember.ArrayController.extend
     if arguments.length > 1
       @_archivedProxy = value
     else
-      @get('show_archived') || @_archivedProxy
-  ).property('show_archived')
+      @get('archived') || @_archivedProxy
+  ).property('archived')
+
+  searchFilters: (->
+    archivedFilters = [
+      SearchFilter.create(label: 'Active Projects', value: false, param: 'archivedProxy'),
+      SearchFilter.create(label: 'Archived Projects', value: true, param: 'archivedProxy')
+    ]
+    officeFilters = @store.all('office').map (office) ->
+      SearchFilter.create(label: office.get('name'), value: office.get('id'), param: 'officeProxy')
+    archivedFilters.concat(officeFilters)
+  ).property()
 
   actions:
 
     search: ->
       @transitionToRoute({queryParams: {search: @get('searchProxy'), page: 1}})
+
+    updateFilter: (selection) ->
+      console.log(selection)
+
 
 `export default ProjectsController`

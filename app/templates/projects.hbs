@@ -5,6 +5,7 @@
 {{input value=searchProxy placeholder='Search for projects' class='searchBar' action='search'}}<p {{action 'search'}} class="searchIcon">&#128269;</p>
  <button class="newProject">{{#link-to 'projects-new'}} Add New Project {{/link-to}}</button>
 
+ {{search-filter content=searchFilters action="updateFilter"}}
 
  <div class="hangRight">{{office-select value=officeProxy prompt="Select an office" }}</div>
  <label class="hangRight">
