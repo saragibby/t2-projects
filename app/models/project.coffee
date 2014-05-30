@@ -11,7 +11,8 @@ Project = DS.Model.extend
   name: DS.attr('string')
   vacation: DS.attr('boolean')
   billable: DS.attr('boolean', {defaultValue: true})
-  provisional: DS.attr('boolean')
+  provisional: DS.attr('boolean', {defaultValue: false})
+  archived: DS.attr('boolean', {defaultValue: false})
   investmentFridays: DS.attr('boolean', {defaultValue: true})
   numWeeksPerInvoice: DS.attr('number', {defaultValue: 2})
 
