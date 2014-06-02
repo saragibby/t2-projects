@@ -1,8 +1,4 @@
 {{#link-to 'projects'}}Back to list{{/link-to}}
-<h2>{{name}}</h2>
-
-{{#link-to 'project-edit' model}}Edit{{/link-to}} <br/>
-
 
 {{#if model.endDate}}
   <button {{action 'unarchive'}}>Unarchive</button>
@@ -10,34 +6,111 @@
   <button {{action 'archive'}}>Archive</button>
 {{/if}}
 
-<br/>
+<div class="projectView">
+  <nav>
+    <a href="#">Overview</a>
 
-Staffing:
-<ul>
-  {{#each office in offices}}
-    <li>{{office.name}}</li>
-  {{/each}}
-</ul>
+    <a href="#">Staffing</a>
 
-Peeps:
-<ul>
-  {{#each person in people}}
-    <li>{{person.name}}</li>
-  {{/each}}
-</ul>
+    <a href="#">Billing</a>
+  </nav>
+  <div class="contentPane">
+    <h2>{{name}}</h2><h3>{{format-date project.startDate}} —{{format-date project.endDate}}</h3>
 
-Rates:
-<ul>
-  {{#if rates.developer}}
-    <li>Developer: {{rates.developer}}</li>
-  {{/if}}
-  {{#if rates.designer}}
-    <li>Designer: {{rates.designer}}</li>
-  {{/if}}
-  {{#if rates.principal}}
-    <li>Principal: {{rates.principal}}</li>
-  {{/if}}
-  {{#if rates.productManager}}
-    <li>Product Manager: {{rates.productManager}}</li>
-  {{/if}}
-</ul>
+    {{#link-to 'project-edit' model}}Edit{{/link-to}} <br/>
+
+    <div>
+      <h3>Overview</h3>
+      <table>
+        <tr>
+          <th>Billable:</th>
+          <td>{{#if billable}}Yes{{else}}No{{/if}}</td>
+        </tr>
+<!--         <tr>
+          <th>Selling:</th>
+          <td></td>
+        </tr> -->
+        <tr>
+          <th>Staffing:</th>
+          <td>
+            <ul class="comma-separated">
+              {{#each office in offices}}
+                <li>{{office.name}}</li>
+              {{/each}}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Allocations:</th>
+          <td>
+            <ul class="comma-separated">
+              {{#each person in people}}
+                <li>{{person.name}}</li>
+              {{/each}}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Rates:</th>
+          <td>
+            <ul>
+            {{#if rates.developer}}
+              <li>Developer: ${{rates.developer}}/week</li>
+            {{/if}}
+            {{#if rates.designer}}
+              <li>Designer: ${{rates.designer}}/week</li>
+            {{/if}}
+            {{#if rates.principal}}
+              <li>Principal: ${{rates.principal}}/week</li>
+            {{/if}}
+            {{#if rates.productManager}}
+              <li>Product Manager: ${{rates.productManager}}/week</li>
+            {{/if}}
+          </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <h3>Staffing</h3>
+      <ul>
+        {{#each office in offices}}
+          <li>{{office.name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    <div>
+      <h3>Rates</h3>
+    </div>
+
+    Staffing:
+    <ul>
+      {{#each office in offices}}
+        <li>{{office.name}}</li>
+      {{/each}}
+    </ul>
+
+    Peeps:
+    <ul>
+      {{#each person in people}}
+        <li>{{person.name}}</li>
+      {{/each}}
+    </ul>
+
+    Rates:
+    <ul>
+      {{#if rates.developer}}
+        <li>Developer: {{rates.developer}}</li>
+      {{/if}}
+      {{#if rates.designer}}
+        <li>Designer: {{rates.designer}}</li>
+      {{/if}}
+      {{#if rates.principal}}
+        <li>Principal: {{rates.principal}}</li>
+      {{/if}}
+      {{#if rates.productManager}}
+        <li>Product Manager: {{rates.productManager}}</li>
+      {{/if}}
+    </ul>
+  </div>
+</div>

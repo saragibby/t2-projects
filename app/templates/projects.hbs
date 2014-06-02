@@ -2,18 +2,21 @@
 <br/>
 <!-- Let's pretend that the projects-across-offices-bar-graph-is-going-to-be-here-in-the-future -->
 
-{{input value=searchProxy placeholder='Search for projects' class='searchBar' action='search'}}<p {{action 'search'}} class="searchIcon">&#128269;</p>
- <button class="newProject">{{#link-to 'projects-new'}} Add New Project {{/link-to}}</button>
+{{input value=searchProxy placeholder='Search for projects' class='searchBar'}}<p class="searchIcon">&#128269;</p>
 
+<div class="hangRight">{{office-select value=officeProxy prompt="Select an office" }}</div>
 
- <div class="hangRight">{{office-select value=officeProxy prompt="Select an office" }}</div>
- <label class="hangRight">
-   {{input checked=archivedProxy type="checkbox"}}Show Archived
- </label>
+<label class="hangLeft">
+  {{input checked=archivedProxy type="checkbox"}}Show Projects with Past End Dates
+</label>
 
- <div class="hangRight cleared">{{will-paginate route='projects' data=content}}</div>
+<div class="hangRight ">{{will-paginate route='projects' data=content}}</div>
 
 <br/>
+<br/>
+
+ <button class="newProject">{{#link-to 'projects-new'}} Add New Project {{/link-to}}</button>
+
 
 <table>
   <thead>
@@ -22,7 +25,7 @@
       <th>Start Date</th>
       <th>End Date</th>
       <th>Provisional</th>
-      <th>Investment Fridays</th>
+      <th style="text-align: center;">Investment Fridays</th>
       <th>Offices</th>
     </tr>
   </thead>
@@ -33,8 +36,8 @@
       <td> {{#link-to 'project' project.id}}{{project.name}}{{/link-to}} </td>
       <td> {{format-date project.startDate}} </td>
       <td> {{format-date project.endDate}} </td>
-      <td> {{check-mark project.provisional}} </td>
-      <td> {{check-mark project.investmentFridays}} </td>
+      <td style="text-align: center;"> {{check-mark project.provisional}} </td>
+      <td style="text-align: center;"> {{check-mark project.investmentFridays}} </td>
       <td> {{staffing-offices project}} </td>
     </tr>
     {{/each}}
