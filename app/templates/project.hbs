@@ -4,10 +4,10 @@
 {{#link-to 'project-edit' model}}Edit{{/link-to}} <br/>
 
 
-{{#if model.archived}}
-  <button {{action 'toggleArchived'}}>Unarchive</button>
+{{#if model.endDate}}
+  <button {{action 'unarchive'}}>Unarchive</button>
 {{else}}
-  <button {{action 'toggleArchived'}}>Archive</button>
+  <button {{action 'archive'}}>Archive</button>
 {{/if}}
 
 <br/>
