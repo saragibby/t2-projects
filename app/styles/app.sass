@@ -313,6 +313,8 @@ label
 .cleared
   clear: both
 
+
+
   &label
     margin-left: 0
     padding-top: 5px
@@ -336,26 +338,51 @@ table > tbody > tr
 //        PROJECT VIEW
 // =============================
 
+html
+  position: relative
+body.ember-application
+  height: 100%
+
 .projectView
   height: 100%
+  button
+    float: right
+    margin-left: 15px
+    margin-top: 15px
+    &.edit
+      background-color: #555555
+      &:hover
+        background-color: #444444
   h2
     color: $orange
     font-family: 'Montserrat'
+    padding: 15px 15px
+    float: left
+  a.backToList
+    padding: 0 15px 15px 15px
+    clear: both
+    float: left
+    color: $mid-gray
+    &:hover
+      color: $dark-gray
   nav
     @include span-columns(2)
+    margin-top: -30px
     height: 100%
     background-color: #555555
     a
       display: block
-      padding: 28px 0
+      padding: 21px 0
       text-align: center
-      height: 80px
+      height: 70px
       border-bottom: 1px solid $mid-gray
       &:hover
         background-color: #aaaaaa
   .contentPane
     @include span-columns (10)
     div
+      clear: both
+      margin-top: 45px
       h3
         font-family: 'Montserrat'
         color: #fff
@@ -365,6 +392,10 @@ table > tbody > tr
         padding-left: 15px
         padding-top: 10px
         background-color: #aaaaaa
+      h4
+        font-family: 'Montserrat'
+        color: $orange
+        font-size: 16px
       table
         tr
           background-color: #fff
@@ -381,6 +412,13 @@ table > tbody > tr
               display: inline
               &:after
                 content: ", "
+      .staffingTable
+    div.staffingList
+      @include span-columns(6)
+      padding: 15px
+
+
+
 
 
 

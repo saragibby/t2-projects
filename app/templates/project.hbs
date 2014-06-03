@@ -1,25 +1,30 @@
-{{#link-to 'projects'}}Back to list{{/link-to}}
-
-{{#if model.endDate}}
-  <button {{action 'unarchive'}}>Unarchive</button>
-{{else}}
-  <button {{action 'archive'}}>Archive</button>
-{{/if}}
 
 <div class="projectView">
   <nav>
-    <a href="#">Overview</a>
+    <a href="#projectOverview">Overview</a>
 
-    <a href="#">Staffing</a>
+    <a href="#projectStaffing">Staffing</a>
 
-    <a href="#">Billing</a>
+    <a href="#projectBilling">Billing</a>
+    <div style="clear: both;"/>
   </nav>
   <div class="contentPane">
-    <h2>{{name}}</h2><h3>{{format-date project.startDate}} —{{format-date project.endDate}}</h3>
+    <h2>{{name}}</h2>
+    <!-- Commented out because it's not working for some reason...
+    {{format-date project.startDate}} —{{format-date project.endDate}}
+    -->
 
-    {{#link-to 'project-edit' model}}Edit{{/link-to}} <br/>
 
-    <div>
+
+    <button class="edit" {{#link-to 'project-edit' model}}Edit{{/link-to}}</button>
+
+    {{#if model.archived}}
+      <button {{action 'toggleArchived'}}>Unarchive</button>
+    {{else}}
+      <button {{action 'toggleArchived'}}>Archive</button>
+    {{/if}}
+    {{#link-to 'projects' class="backToList"}}Back to list{{/link-to}}
+    <div id="projectOverview">
       <h3>Overview</h3>
       <table>
         <tr>
@@ -71,16 +76,28 @@
         </tr>
       </table>
     </div>
-    <div>
+
+<!--     <div id="projectStaffing">
       <h3>Staffing</h3>
-      <ul>
-        {{#each office in offices}}
-          <li>{{office.name}}</li>
-        {{/each}}
-      </ul>
     </div>
-    <div>
-      <h3>Rates</h3>
+      <div class="staffingList">
+        <h4>Current Month - April 2014</h4>
+        <table>
+          <tr>
+          <th></th>
+          <td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="staffingList">
+        <h4>Next Month - May 2014</h4>
+      </div>
+      <div class="staffingList">
+        <h4>Total for Project</h4>
+      </div>
+      <div style="clear: both;"></div>
+    <div id="projectBilling">
+      <h3>Billing</h3>
     </div>
 
     Staffing:
@@ -111,6 +128,6 @@
       {{#if rates.productManager}}
         <li>Product Manager: {{rates.productManager}}</li>
       {{/if}}
-    </ul>
+    </ul> -->
   </div>
 </div>
