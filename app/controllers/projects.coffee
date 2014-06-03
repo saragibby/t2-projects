@@ -1,45 +1,39 @@
+`import promiseAction from 't2-projects/utils/promise-action'`
+
 ProjectsController = Ember.ArrayController.extend
-  queryParams: ['page', 'search', 'office_id', 'show_archived']
+  queryParams: ['page', 'office_id', 'archived']
   page: 1
-  search: ''
-  office_id: undefined
-  show_archived: false
-  _searchProxy: ''
-  _officeProxy: undefined
-  _archivedProxy: false
+  office_id: null
+  archived: false
 
-  officeObserver: (->
-    @transitionToRoute({queryParams: {office_id: @get('officeProxy'), page: 1}})
-  ).observes('officeProxy')
+  searchResults: []
+  query: null
 
-  archivedObserver: (->
-    @transitionToRoute({queryParams: {page: 1, show_archived: @get('archivedProxy')}})
-  ).observes('archivedProxy')
+  search: promiseAction (searchTerm) ->
+    @store.find('projectListItem', {search: searchTerm}).then (results) =>
+      @set('searchResults', results)
 
-  searchProxy: ((key, value, oldValue) ->
-    if arguments.length > 1
-      @_searchProxy = value
+  selectedFilter: (->
+    @get('searchFilters').objectAt(0)
+  ).property('searchFilters')
+
+  selectedFilterObserver: (->
+    param = @get('selectedFilter.param')
+    value  = @get('selectedFilter.value')
+    if param == 'archived'
+      @transitionToRoute({queryParams: { page: 1, archived: value, office_id: null }})
     else
-      @get('search') || @_searchProxy
-  ).property('search')
+      @transitionToRoute({queryParams: { page: 1, archived: false, office_id: value }})
+  ).observes('selectedFilter')
 
-  officeProxy: ((key, value, oldValue) ->
-    if arguments.length > 1
-      @_officeProxy = value
-    else
-      @get('office_id') || @_officeProxy
-  ).property('office_id')
-
-  archivedProxy: ((key, value, oldValue) ->
-    if arguments.length > 1
-      @_archivedProxy = value
-    else
-      @get('show_archived') || @_archivedProxy
-  ).property('show_archived')
-
-  actions:
-
-    search: ->
-      @transitionToRoute({queryParams: {search: @get('searchProxy'), page: 1}})
+  searchFilters: (->
+    archivedFilters = [
+      Em.Object.create(label: 'Active Projects', value: false, param: 'archived')
+      Em.Object.create(label: 'Archived Projects', value: true, param: 'archived')
+    ]
+    officeFilters = @store.all('office').map (office) ->
+      Em.Object.create(label: office.get('name'), value: office.get('id'), param: 'office_id')
+    archivedFilters.concat(officeFilters)
+  ).property('activeFilter')
 
 `export default ProjectsController`

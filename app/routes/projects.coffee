@@ -1,12 +1,10 @@
 ProjectsRoute = Ember.Route.extend
   queryParams:
-    search:
-      refreshModel: true
     page:
       refreshModel: true
     office_id:
       refreshModel: true
-    show_archived:
+    archived:
       refreshModel: true
 
   model: (params) ->
