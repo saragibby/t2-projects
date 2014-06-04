@@ -9,31 +9,49 @@ ProjectsController = Ember.ArrayController.extend
   searchResults: []
   query: null
 
+  # Search
+  #
   search: promiseAction (searchTerm) ->
     @store.find('projectListItem', {search: searchTerm}).then (results) =>
       @set('searchResults', results)
 
+  # Filter selection
+  #
   selectedFilter: (->
     @get('searchFilters').objectAt(0)
   ).property('searchFilters')
 
-  selectedFilterObserver: (->
-    param = @get('selectedFilter.param')
-    value  = @get('selectedFilter.value')
-    if param == 'archived'
-      @transitionToRoute({queryParams: { page: 1, archived: value, office_id: null }})
-    else
-      @transitionToRoute({queryParams: { page: 1, archived: false, office_id: value }})
+  searchFilters: (->
+    @get('archivedFilters').concat(@get('officeFilters'))
+  ).property('archivedFilters', 'officeFilters')
+
+  filterSelectedObserver: (->
+    @transitionToRoute(queryParams: @get('selectedFilter.queryParams'))
   ).observes('selectedFilter')
 
-  searchFilters: (->
-    archivedFilters = [
-      Em.Object.create(label: 'Active Projects', value: false, param: 'archived')
-      Em.Object.create(label: 'Archived Projects', value: true, param: 'archived')
-    ]
-    officeFilters = @store.all('office').map (office) ->
-      Em.Object.create(label: office.get('name'), value: office.get('id'), param: 'office_id')
-    archivedFilters.concat(officeFilters)
-  ).property('activeFilter')
+
+  # Filters
+  #
+  officeFilters: (->
+    @store.all('office').map (office) ->
+      Em.Object.create
+        label: office.get('name')
+        value: office.get('id')
+        queryParams: { page: 1, archived: false, office_id: office.get('id') }
+  ).property()
+
+  archivedFilters: (->
+    active = Em.Object.create
+      label: 'Active Projects'
+      value: false
+      queryParams: { page: 1, archived: false, office_id: null }
+    archived = Em.Object.create
+      label: 'Archived Projects'
+      value: true
+      queryParams: { page: 1, archived: true, office_id: null }
+
+    [active, archived]
+  ).property()
+
 
 `export default ProjectsController`
