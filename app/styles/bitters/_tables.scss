@@ -19,4 +19,15 @@ td {
 
 tr, td, th {
   vertical-align: middle;
+
+}
+
+.table-striped {
+  tr:nth-child(even) {
+    background-color: #f9f9f9
+  }
+}
+
+td.centered-cell, th.centered-cell {
+    text-align: center;
 }

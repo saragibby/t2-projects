@@ -19,27 +19,27 @@
   </div>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Provisional</th>
-      <th>Investment Fridays</th>
-      <th>Offices</th>
-    </tr>
-  </thead>
+<table class='table-striped'>
+  <colgroup>
+    <col style="width: 50%">
+    <col style="width: 20%">
+    <col style="width: 15%">
+    <col style="width: 15%">
+  </colgroup>
+  <tr>
+    <th>Name</th>
+    <th>Start Date</th>
+    <th class='centered-cell'>Provisional</th>
+    <th class='centered-cell'>Investment Fridays</th>
+  </tr>
 
   <tbody>
     {{#each project in content}}
     <tr>
       <td> {{#link-to 'project' project.id}}{{project.name}}{{/link-to}} </td>
       <td> {{format-date project.startDate}} </td>
-      <td> {{format-date project.endDate}} </td>
-      <td> {{check-mark project.provisional}} </td>
-      <td> {{check-mark project.investmentFridays}} </td>
-      <td> {{staffing-offices project}} </td>
+      <td class='centered-cell'> {{check-mark project.provisional}} </td>
+      <td class='centered-cell'> {{check-mark project.investmentFridays}} </td>
     </tr>
     {{/each}}
   </tbody>
