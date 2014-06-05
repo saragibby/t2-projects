@@ -1,19 +1,23 @@
-<br/>
-<br/>
-<!-- Let's pretend that the projects-across-offices-bar-graph-is-going-to-be-here-in-the-future -->
+<div class='search-controls'>
+  <div class='search'>
+    {{search-field placeholder='Search for projects'
+                   query=query
+                   search=search
+                   results=searchResults}}
+    {{#link-to 'projects-new' class='button'}} Add New Project {{/link-to}}
+  </div>
 
-{{input value=searchProxy placeholder='Search for projects' class='searchBar' action='search'}}<p {{action 'search'}} class="searchIcon">&#128269;</p>
- <button class="newProject">{{#link-to 'projects-new'}} Add New Project {{/link-to}}</button>
+  <div class='filter'>
+    {{view Ember.Select content=searchFilters
+                        optionLabelPath='content.label'
+                        optionValuePath='content.value'
+                        selection=selectedFilter
+                        class='project-filter'}}
 
 
- <div class="hangRight">{{office-select value=officeProxy prompt="Select an office" }}</div>
- <label class="hangRight">
-   {{input checked=archivedProxy type="checkbox"}}Show Archived
- </label>
-
- <div class="hangRight cleared">{{will-paginate route='projects' data=content}}</div>
-
-<br/>
+    {{will-paginate route='projects' data=content}}
+  </div>
+</div>
 
 <table class='table-striped'>
   <colgroup>
@@ -44,6 +48,5 @@
 <br/>
 
 <div class="hangLeft"><a href="{{unbound ENV.apiHost}}/reports/revenue.csv">Download Revenue Report</a></div>
-
-<div class="hangRight">{{will-paginate route='projects' data=content}}</div><br/><br/>
-<div class="hangRight cleared">{{office-select value=officeProxy prompt="Select an office"}}</div>
+<br/>
+<br/>

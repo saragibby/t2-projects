@@ -1,0 +1,187 @@
+.projectForm
+  @include outer-container
+
+  a
+    color: $mid-gray
+
+  h1
+    @include span-columns(12)
+    font-weight: 700
+    color: $orange
+    margin: 20px 0 0 0
+
+  h2
+    color: $dark-gray
+    margin: 40px 0 10px 0
+    font-family: Montserrat
+    font-size: 1rem
+
+  > div
+    @include span-columns(6)
+    &:nth-child(even)
+      @include omega
+    > h2:first-child
+      margin-top: 30px
+    @media (max-width: 768px)
+      @include span-columns(12)
+      @include omega
+  select
+    width: 100%
+
+  label.weeksInvoiced
+    float: left
+    width: 100%
+
+    span
+      padding: 7px 0 0 10px
+      display: inline-block
+      width: 250px
+      float:left
+    input
+      float: left
+      width: 50px
+
+  > div > .officeList
+    -moz-column-count: 2
+    -moz-column-gap: 1.5em
+    -moz-column-rule: none
+    -webkit-column-count: 2
+    -webkit-column-gap: 1.5em
+    -webkit-column-rule: none
+    column-count: 2
+    column-gap: 1.5em
+    column-rule: none
+
+  > .revenueTable
+    @include span-columns(12)
+    > h2
+      margin-top: 20px
+    > .table
+      display: table
+      border-collapse: collapse
+      margin-bottom: 30px
+      > .tableRow
+        display: table-row
+        padding-bottom: 15px
+
+        @media (max-width: 768px)
+          padding-left: 20px
+          width: 30%
+          display: block
+          float: left
+          border-top: 1px solid $base-border-color
+
+        > .tableCell:nth-child(1)
+          text-align: left
+
+        &:nth-child(2)
+          .tableCell
+            padding-top: 20px
+            @media (max-width: 768px)
+              padding-top: 10px
+        > .tableCell
+          display: table-cell
+          text-align: center
+          vertical-align: middle
+          line-height: 1.3rem
+          padding-right: 10px
+          padding-top: 10px
+
+          @media (max-width: 768px)
+            display: block
+            padding 11px 0 18px 0
+            height: 50px
+            float: none
+            text-align: right
+
+            > span
+              padding-top: 10px
+              display: inline-block
+
+          > input
+            background-color: $white
+            font-family: Montserrat
+            text-align: right
+
+      > .tableHeader
+        display: none
+        color: $dark-gray
+        height: 70px
+        border-top: 1px solid $base-border-color
+        border-bottom: 1px solid $base-border-color
+
+        @media (max-width: 768px)
+          padding-left: 0
+          width: 65%
+          border-top: 1px solid $base-border-color
+
+          > .tableCell:nth-child(2)
+            padding-top: 20px
+
+          &.productManager
+            > .tableCell:nth-child(2)
+              padding-top: 20px
+
+        &:nth-child(1)
+          display: table-row
+
+        > .tableCell
+          padding-top: 0
+          text-align: left
+          vertical-align: middle
+
+        @media (max-width: 768px)
+          display: block
+          border-bottom: none
+          > .tableCell
+            width: 100%
+            padding-top: 20px
+            &:nth-child(1)
+              padding-top: 10px
+
+      > .tableRow:nth-child(5)
+        .tableCell
+          padding-bottom: 10px
+
+          @media (max-width: 768px)
+            padding-bottom: 0
+
+      .totalRow
+        border-top: 1px solid $base-border-color
+
+        @media (max-width: 768px)
+          width: 100%
+          text-align: right
+          > .tableCell
+            width: 70%
+            float: left
+            padding-right: 10px
+          > .tableCell:last-child
+            width: 25%
+            padding-right: 10px
+            > span
+              padding-top: 0
+          > .tableCell:nth-child(-n+5)
+            display: none
+
+  .description
+    h2
+      margin-top: 30px
+
+    > textarea
+      height: 120px
+      max-height: 120px
+
+  .date
+    > input
+      float: left
+      width: 45%
+      margin-top: 0
+      margin-bottom: 30px
+
+      &:nth-child(2)
+        @include omega
+        float: right
+
+  button
+    margin-bottom: 40px

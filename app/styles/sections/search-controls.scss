@@ -1,0 +1,24 @@
+.search-controls {
+  @include outer-container;
+
+  .search {
+    @include span-columns(7);
+
+    .search-field {
+      @include span-columns(4 of 7);
+    }
+  }
+
+  .filter {
+    @include span-columns(2.5);
+    @include shift(2.5);
+
+    select {
+      float: right;
+    }
+
+    .will-paginate {
+      float: right;
+    }
+  }
+}

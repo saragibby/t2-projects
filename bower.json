@@ -17,9 +17,10 @@
     "moment": "*",
     "bourbon": "~3.1.8",
     "neat": "1.6.0",
-    "pikaday": "~1.2.0"
+    "pikaday": "~1.2.0",
+    "spin.js": "2.0.1"
   },
   "resolutions": {
-    "ember": "e-tag:7f4e1fd2d"
+    "ember": "e-tag:397da625e"
   }
 }

@@ -1,7 +1,9 @@
 // Typography
 ///////////////////////////////////////////////////////////////////////////////
-$sans-serif: $helvetica;
+$sans-serif: "Montserrat", sans-serif;
 $serif: $georgia;
+@include font-face(entypo, 'fonts/entypo');
+$entypo: entypo;
 
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
@@ -15,24 +17,39 @@ $base-border-radius: em(3);
 // Colors
 ///////////////////////////////////////////////////////////////////////////////
 
-$blue: #477DCA;
-$dark-gray: #333;
-$medium-gray: #999;
+$blue: #6ed7f6;
+$light-blue: #0dbff3;
+$dark-blue: #477dca;
+
+$light-gray: #bcbcbc;
+$mid-gray: #D8D8D8;
+$medium-gray: $mid-gray;
+$dark-gray: #777c7c;
+
 $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
+
+// indicators
+$green:  #80c784;
+$yellow: #f4cf38;
+$orange: #fa9225;
+$red: #e1502f;
+
+$white: #fff;
+$off-white: #f3f3f3;
 
 // Body Color
 $base-body-color: white;
 
 //  Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-accent-color: $dark-blue;
 
 //  Text Link Colors
-$base-link-color: $base-accent-color;
-$hover-link-color: darken($base-accent-color, 15);
+$base-link-color: $dark-blue;
+$hover-link-color: darken($dark-blue, 15);
 
 // Border color
 $base-border-color: $light-gray;

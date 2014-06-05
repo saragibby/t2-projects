@@ -1,0 +1,7 @@
+a.button {
+  @extend %button;
+
+  &:hover {
+    color: $white;
+  }
+}

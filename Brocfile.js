@@ -24,6 +24,8 @@ var app = new EmberApp({
 app.import('vendor/ember-data/ember-data.js');
 app.import('vendor/moment/moment.js');
 app.import('vendor/pikaday/pikaday.js');
+app.import('vendor/spin.js/spin.js');
+
 
 // CSS
 app.import('vendor/pikaday/css/pikaday.css');
