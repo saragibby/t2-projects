@@ -1,43 +1,70 @@
-{{#link-to 'projects'}}Back to list{{/link-to}}
-<h2>{{name}}</h2>
+{{#link-to 'projects'}}Back to list{{/link-to}} <br>
 
-{{#link-to 'project-edit' model}}Edit{{/link-to}} <br/>
+<article id='project-detail'>
 
+  <section role="title">
+    <header>
+      <h2>{{name}}</h2>
+      {{date-range startDate=startDate endDate=endDate format='MMMM Do, YYYY'}}
+    </header>
 
-{{#if model.endDate}}
-  <button {{action 'unarchive'}}>Unarchive</button>
-{{else}}
-  <button {{action 'archive'}}>Archive</button>
-{{/if}}
+    <ul class='actions'>
+      <li>
+        {{#if model.archived}}
+          <button {{action 'toggleArchived'}}>Unarchive</button>
+        {{else}}
+          <button {{action 'toggleArchived'}}>Archive</button>
+        {{/if}}
+      </li>
+      <li> {{#link-to 'project-edit' model class='button'}}Edit{{/link-to}} </li>
+    </ul>
+  </section>
 
-<br/>
+  <section role="overview">
 
-Staffing:
-<ul>
-  {{#each office in offices}}
-    <li>{{office.name}}</li>
-  {{/each}}
-</ul>
+    <div class='data-list'>
+      <div class='row'>
+        <div class='label'> <strong>Billable:</strong></div>
+        <div class='data'> {{yep-nope billable}} </div>
+      </div>
 
-Peeps:
-<ul>
-  {{#each person in people}}
-    <li>{{person.name}}</li>
-  {{/each}}
-</ul>
+      <div class='row'>
+        <div class='label'><strong> Selling: </strong></div>
+        <div class='data'> {{or-idk sellingOffice.name}} </div>
+      </div>
 
-Rates:
-<ul>
-  {{#if rates.developer}}
-    <li>Developer: {{rates.developer}}</li>
-  {{/if}}
-  {{#if rates.designer}}
-    <li>Designer: {{rates.designer}}</li>
-  {{/if}}
-  {{#if rates.principal}}
-    <li>Principal: {{rates.principal}}</li>
-  {{/if}}
-  {{#if rates.productManager}}
-    <li>Product Manager: {{rates.productManager}}</li>
-  {{/if}}
-</ul>
+      <div class='row'>
+        <div class='label'><strong> Staffing: </strong></div>
+        <div class='data'> {{comma-separated offices 'name'}} </div>
+      </div>
+
+      <div class='row'>
+        <div class='label'><strong> Allocations: </strong></div>
+        <div class='data'> {{comma-separated people 'name'}} </div>
+      </div>
+
+      <div class='row'>
+        <div class='label'><strong> Rates: </strong></div>
+        {{#if rates}}
+          <ul class='data'>
+            {{#if rates.developer}}
+              <li>Developer: ${{rates.developer}}/week</li>
+            {{/if}}
+            {{#if rates.designer}}
+              <li>Designer: ${{rates.designer}}/week</li>
+            {{/if}}
+            {{#if rates.principal}}
+              <li>Principal: ${{rates.principal}}/week</li>
+            {{/if}}
+            {{#if rates.productManager}}
+              <li>Product Manager: ${{rates.productManager}}/week</li>
+            {{/if}}
+          </ul>
+        {{else}}
+          <div class='data'>tbd</div>
+        {{/if}}
+      </div>
+    </div>
+  </section>
+
+</article>

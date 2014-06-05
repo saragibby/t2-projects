@@ -1,0 +1,21 @@
+.data-list {
+  display: table;
+
+  > .row {
+    display: table-row;
+
+    > .data {
+      padding: 0 0 8px 20px;
+      display: table-cell;
+    }
+
+    > .label {
+      display: table-cell;
+      text-align: right;
+      font-weight: bolder;
+    }
+  }
+}
+
+
+

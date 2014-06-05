@@ -1,0 +1,20 @@
+#project-detail {
+  @include outer-container;
+
+  section[role='title'] {
+    @include span-columns(12);
+
+    header {
+      @include span-columns(6 of 12);
+    }
+
+    ul.actions {
+      @include span-columns(6 of 12);
+      text-align: right;
+
+      li {
+        display: inline;
+      }
+    }
+  }
+}
