@@ -4,7 +4,6 @@
                    query=query
                    search=search
                    results=searchResults}}
-    {{#link-to 'projects-new' class='button'}} Add New Project {{/link-to}}
   </div>
 
   <div class='filter'>
@@ -38,7 +37,7 @@
     {{#each project in content}}
       <tr>
         <td> {{#link-to 'project' project.id}}{{project.name}}{{/link-to}} </td>
-        <td> {{format-date project.startDate}} </td>
+        <td> {{readable-date project.startDate}} </td>
         <td class='centered-cell'> {{check-mark project.provisional}} </td>
         <td class='centered-cell'> {{check-mark project.investmentFridays}} </td>
       </tr>
