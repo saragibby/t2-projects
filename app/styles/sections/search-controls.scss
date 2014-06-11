@@ -15,6 +15,18 @@
 
     select {
       float: right;
+      overflow: hidden;
+      height: 33px;
+      width: 192px;
+      background: white;
+      color: $brighter-blue;
+      border-color: $brighter-blue;
+    }
+
+    select:hover{
+      background: white;
+      color: $dark-blue;
+      border-color: $dark-blue;
     }
 
     .will-paginate {

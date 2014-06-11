@@ -7,8 +7,11 @@
       </a>
     </div>
   {{/each}}
-  <div class="global-logout"><a href="/#/sign_out"><i>&#59201;</i></a></div>
+  <div class='add-project'>
+   {{#link-to 'projects-new' class='button'}} &#43; Add New Project {{/link-to}}
+  </div>
 </div>
+
 <ul class="nav-links">
   {{#each link in view.top_links}}
     <li {{bind-attr class="link.classes"}}>
@@ -19,3 +22,4 @@
     </li>
   {{/each}}
 </ul>
+
