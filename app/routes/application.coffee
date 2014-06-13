@@ -4,7 +4,7 @@ ApplicationRoute = Ember.Route.extend
     auth.extractAccessToken()
     if not auth.get('isAuthenticated')
       transition.abort()
-      auth.redirectToSignIn()
+      auth.login()
 
     @store.find("office")
 

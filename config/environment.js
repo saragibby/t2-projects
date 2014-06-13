@@ -24,6 +24,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.apiHost = "http://localhost:5000";
+    ENV.SIGN_IN_URL = "http://localhost:5000/sign_in";
+    ENV.SIGN_OUT_URL = "http://localhost:5000/sign_out";
+    ENV.API_BASEURL = "http://localhost:5000/api/v1";
   }
 
   if (environment === 'staging') {
