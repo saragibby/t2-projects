@@ -82,6 +82,15 @@ select {
   width: auto;
   max-width: 100%;
   margin-bottom: $base-line-height;
+  background: white;
+  color: $brighter-blue;
+  border-color: $brighter-blue;
+  outline: none;
+
+  &:hover {
+    color: $dark-blue;
+    border-color: $dark-blue;
+  }
 }
 
 button,
