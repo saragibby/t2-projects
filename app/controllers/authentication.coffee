@@ -1,8 +1,3 @@
-_redirectTo = (url)->
-  uri = url
-  uri += "?return_url=" + escape(location.href)
-  location.href = uri
-
 AuthenticationController = Ember.ObjectController.extend
   init: -> @set('accessToken', localStorage.accessToken)
 
@@ -10,24 +5,18 @@ AuthenticationController = Ember.ObjectController.extend
 
   isAuthenticated: Ember.computed.notEmpty('accessToken')
 
-  _redirectToSignIn: ->
-    _redirectTo ENV.SIGN_IN_URL
+  redirectToSignIn: ->
+    @_redirectTo "/sign_in"
 
-  _redirectToSignOut: ->
-    _redirectTo ENV.SIGN_OUT_URL
+  logout: ->
+    @set('accessToken', null)
+    @_redirectTo "/sign_out"
 
   extractAccessToken: ->
     match = location.href.match(/authentication_token=([a-zA-Z0-9_-]+)/)
     if (match)
       @set('accessToken', match[1])
       location.href = location.origin
-
-  login: ->
-    @_redirectToSignIn()
-
-  logout: ->
-    @set('accessToken', null)
-    @_redirectToSignOut()
 
   accessTokenChanged: (->
     token = @get('accessToken')
@@ -60,3 +49,4 @@ AuthenticationController = Ember.ObjectController.extend
 
 
 `export default AuthenticationController`
+
