@@ -13,7 +13,7 @@ Project = DS.Model.extend
   billable: DS.attr('boolean', {defaultValue: true})
   provisional: DS.attr('boolean', {defaultValue: false})
   investmentFridays: DS.attr('boolean', {defaultValue: true})
-  numWeeksPerInvoice: DS.attr('number', {defaultValue: 2})
+  numWeeksPerInvoice: DS.attr('number', {defaultValue: 1})
 
   rates: DS.attr 'roleMap', defaultValue: ->
     RoleMap.create
