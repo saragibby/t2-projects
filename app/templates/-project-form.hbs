@@ -17,28 +17,32 @@
 
 <span class="description"><h2>Description</h2> {{textarea value=description}}</span>
 
-<label>
-  {{input checked=provisional type="checkbox"}}
-  Provisional
-</label>
 
-<label>
-{{input checked=investmentFridays type="checkbox"}}
-  Investment Fridays
-</label>
+{{#if billable}}
+  <label>
+    {{input checked=provisional type="checkbox"}}
+    Provisional
+  </label>
+  <label>
+  {{input checked=investmentFridays type="checkbox"}}
+    Investment Fridays
+  </label>
+  <label class="weeksInvoiced">
+  <span>Weeks per Invoice</span>
+  {{input value=numWeeksPerInvoice type="number" placeholder="1"}}
+  </label>
+{{/if}}
 
-<label class="weeksInvoiced">
-<span>Weeks per Invoice</span>
-{{input value=numWeeksPerInvoice type="number" placeholder="1"}}
-</label>
 
 </div>
 <div>
   <h2>Start Date/End Date</h2>
   <span class="date">{{edit-date value=startDate}} <span style="display: inline-block; width: 10%;  padding: 0.5rem 0; float: left; text-align: center;">–</span> {{edit-date value=endDate}}</span> <br/>
 
-  <h2>Selling Office</h2>
-  {{office-select selection=sellingOffice prompt="Select an office"}}
+  {{#if billable}}
+    <h2>Selling Office</h2>
+    {{office-select selection=sellingOffice prompt="Select an office"}}
+  {{/if}}
 
   <h2>Staffing Offices</h2>
   <div class="officeList">
@@ -54,6 +58,7 @@
 
 
 <br/>
+{{#if billable}}
   <div class="revenueTable">
     <h2>Revenue Rates</h2>
 
@@ -149,6 +154,7 @@
       </div>
     </div>
   </div>
+{{/if}}
 
 
   <button {{action 'save'}}>Save</button>

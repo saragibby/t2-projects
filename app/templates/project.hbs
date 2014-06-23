@@ -28,10 +28,12 @@
         <div class='data'> {{yep-nope billable}} </div>
       </div>
 
-      <div class='row'>
-        <div class='label'><strong> Selling: </strong></div>
-        <div class='data'> {{or-idk sellingOffice.name}} </div>
-      </div>
+      {{#if billable}}
+        <div class='row'>
+          <div class='label'><strong> Selling: </strong></div>
+          <div class='data'> {{or-idk sellingOffice.name}} </div>
+        </div>
+      {{/if}}
 
       <div class='row'>
         <div class='label'><strong> Staffing: </strong></div>
