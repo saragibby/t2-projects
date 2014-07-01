@@ -10,10 +10,10 @@
 
     <ul class='actions'>
       <li>
-        {{#if model.archived}}
-          <button {{action 'toggleArchived'}}>Unarchive</button>
+        {{#if model.endDate}}
+          <button {{action 'unarchive'}}>Unarchive</button>
         {{else}}
-          <button {{action 'toggleArchived'}}>Archive</button>
+          <button {{action 'archive'}}>Archive</button>
         {{/if}}
       </li>
       <li> {{#link-to 'project-edit' model class='button'}}Edit{{/link-to}} </li>
