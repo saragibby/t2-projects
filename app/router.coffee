@@ -1,4 +1,8 @@
-Router = Ember.Router.extend()
+`import Ember from 'ember'`
+`import config from './config/environment'`
+
+Router = Ember.Router.extend
+  location: config.locationType
 
 Router.map ->
   @route 'sign_out'
@@ -8,4 +12,3 @@ Router.map ->
   @resource 'project', path: 'projects/:project_id'
 
 `export default Router`
-

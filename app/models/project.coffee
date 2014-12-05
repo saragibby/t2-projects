@@ -1,3 +1,4 @@
+`import DS from "ember-data"`
 `import RoleMap from 't2-projects/utils/role-map'`
 `import TypicalInvoice from 't2-projects/utils/typical-invoice'`
 
