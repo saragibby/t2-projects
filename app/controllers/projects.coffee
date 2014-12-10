@@ -1,4 +1,5 @@
 `import promiseAction from 't2-projects/utils/promise-action'`
+`import ENV from "t2-projects/config/environment";`
 
 ProjectsController = Ember.ArrayController.extend
   queryParams: ['page', 'office_id', 'archived']
@@ -8,6 +9,10 @@ ProjectsController = Ember.ArrayController.extend
 
   searchResults: []
   query: null
+
+  apiHost: (->
+    ENV.apiHost
+  ).property()
 
   # Search
   #
