@@ -1,3 +1,4 @@
+`import DS from "ember-data"`
 ProjectListItem = DS.Model.extend
   sellingOffice: DS.belongsTo('office')
   offices: DS.hasMany('office')
