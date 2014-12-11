@@ -1,7 +1,8 @@
 OfficeSelect = Ember.Select.extend
 
   content: (->
-    @get('parentView.controller.store').all('office')
+    @get('parentView.controller.store').all('office').filter (office) ->
+      return !office.get('deleted')
   ).property()
 
   optionLabelPath: "content.name"
