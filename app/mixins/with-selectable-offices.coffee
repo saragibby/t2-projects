@@ -3,7 +3,11 @@
 WithSelectableOffices = Ember.Mixin.create
 
   selectedOffices: (->
-    @store.all('office').map (office) =>
+    allOffices = @store.all('office')
+    offices = allOffices.filter (office) ->
+      return !office.get('deleted')
+
+    offices.map (office) =>
       SelectableOffice.create
         project: @get('model')
         office: office

@@ -38,7 +38,11 @@ ProjectsController = Ember.ArrayController.extend
   # Filters
   #
   officeFilters: (->
-    @store.all('office').map (office) ->
+    allOffices = @store.all('office')
+    offices = allOffices.filter (office) ->
+      return !office.get('deleted')
+
+    offices.map (office) ->
       Em.Object.create
         label: office.get('name')
         value: office.get('id')
