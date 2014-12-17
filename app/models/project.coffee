@@ -12,7 +12,6 @@ Project = DS.Model.extend
   name: DS.attr('string')
   vacation: DS.attr('boolean')
   billable: DS.attr('boolean', {defaultValue: true})
-  provisional: DS.attr('boolean', {defaultValue: false})
   investmentFridays: DS.attr('boolean', {defaultValue: true})
   numWeeksPerInvoice: DS.attr('number', {defaultValue: 1})
 
@@ -45,4 +44,3 @@ Project = DS.Model.extend
   ).property('rates', 'typicalCounts', 'typicalAllocationPercentages')
 
 `export default Project`
-

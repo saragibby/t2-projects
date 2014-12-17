@@ -7,6 +7,5 @@ ProjectListItem = DS.Model.extend
   startDate: DS.attr('date')
   endDate: DS.attr('date')
   investmentFridays: DS.attr('boolean')
-  provisional: DS.attr('boolean')
 
 `export default ProjectListItem`
