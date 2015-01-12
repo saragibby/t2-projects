@@ -54,7 +54,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'staging') {
-    ENV.apiHost = "http://t2-staging.neo.com";
+    ENV.apiHost = "http://t2api-staging.neo.com";
   }
 
   if (environment === 'production') {

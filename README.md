@@ -57,7 +57,6 @@ And then visit the page at [localhost:9001](http://localhost:9001) to verify tha
 
 ### Staging
 
-* **Known Issue**: Edit `dist/index.html`'s `ENV.apiHost` to be `t2-staging.neo.com` rather than `t2.neo.com`
 * Run `scp -r dist/* neo@t2static.neo.com:/var/www/t2projects-staging.neo.com`
 
 
