@@ -3,7 +3,6 @@ InvoiceLine = Ember.Object.extend
   key: ''
 
   investmentFridays: Ember.computed.alias('project.investmentFridays')
-  numWeeksPerInvoice: Ember.computed.alias('project.numWeeksPerInvoice')
 
   rate: ((_, value) ->
     property = "project.rates.#{@get('key')}"
@@ -40,9 +39,9 @@ InvoiceLine = Ember.Object.extend
   ).property('equivalentDayRate')
 
   perInvoice: (->
-    value = @get('numWeeksPerInvoice')*@get('rate')*@get('count')*@get('allocationPercent') / 100.0
+    value = @get('rate')*@get('count')*@get('allocationPercent') / 100.0
     value || 0.0
-  ).property('rate', 'count', 'allocationPercent', 'numWeeksPerInvoice')
+  ).property('rate', 'count', 'allocationPercent')
 
 
 `export default InvoiceLine`

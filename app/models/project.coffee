@@ -13,7 +13,6 @@ Project = DS.Model.extend
   vacation: DS.attr('boolean')
   billable: DS.attr('boolean', {defaultValue: true})
   investmentFridays: DS.attr('boolean', {defaultValue: true})
-  numWeeksPerInvoice: DS.attr('number', {defaultValue: 1})
 
   rates: DS.attr 'roleMap', defaultValue: ->
     RoleMap.create
@@ -23,24 +22,8 @@ Project = DS.Model.extend
         'Principal': 14000
         'Product Manager': 7000
 
-  typicalCounts: DS.attr 'roleMap', defaultValue: ->
-    RoleMap.create
-      content:
-        'Developer': 2
-        'Designer': 1
-        'Principal': 1
-        'Product Manager': 0
-
-  typicalAllocationPercentages: DS.attr 'roleMap', defaultValue: ->
-    RoleMap.create
-      content:
-        'Developer': 100
-        'Designer': 100
-        'Principal': 50
-        'Product Manager': 100
-
   typicalInvoice: (->
     TypicalInvoice.create(project: @)
-  ).property('rates', 'typicalCounts', 'typicalAllocationPercentages')
+  ).property('rates')
 
 `export default Project`
