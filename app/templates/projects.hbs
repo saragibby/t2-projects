@@ -35,7 +35,7 @@
   <tbody>
     {{#each project in content}}
       <tr>
-        <td> {{#link-to 'project' project.id}}{{project.name}}{{/link-to}} </td>
+        <td> {{#link-to 'project-edit' project.id}}{{project.name}}{{/link-to}} </td>
         <td> {{readable-date project.startDate}} </td>
         <td class='centered-cell'> {{check-mark project.investmentFridays}} </td>
       </tr>

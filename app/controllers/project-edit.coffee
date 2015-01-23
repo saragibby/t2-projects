@@ -7,7 +7,7 @@ ProjectEditController = Ember.ObjectController.extend WithSelectableOffices,
     save: ->
       project = @get('model')
       project.save().then(=>
-        @transitionToRoute('project', project)
+        @transitionToRoute('projects')
       ).catch((error) ->)
 
     cancel: ->
