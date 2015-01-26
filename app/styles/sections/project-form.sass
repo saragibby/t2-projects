@@ -185,3 +185,30 @@
 
   button
     margin-bottom: 40px
+
+.pika-button, .pika-next, .pika-prev
+  text-shadow: none
+  box-shadow: none
+
+button.pika-next:hover:not(:disabled)
+  text-shadow: none
+  box-shadow: none
+  &:hover
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=')
+    background-color: inherit
+    box-shadow: none
+
+button.pika-prev:hover:not(:disabled)
+  text-shadow: none
+  box-shadow: none
+  &:hover
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==')
+    background-color: inherit
+    box-shadow: none
+  
+table.pika-table
+  table-layout: auto
+  th:first-child
+    padding-left: 0px
+  td:first-child
+    padding-left: 0px
