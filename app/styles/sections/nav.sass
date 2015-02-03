@@ -25,12 +25,14 @@ html,body
     color: $white
     font-weight: bold
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15)
-    ul.nav-links
+
+    ul
       padding: 0
       margin: 7px 20px 0 0
       float: right
       list-style-type: none
-    .nav-links li
+
+    li
       +transition(all 0.3s)
       cursor: pointer
       margin: -14px 0px 0 0
@@ -39,53 +41,56 @@ html,body
       float: left
       border-right: 1px solid transparent
       border-left: 1px solid transparent
-      line-height: inherit
-      font-size: inherit
-      font-weight: normal
-      border-bottom: none
+
       &:hover
         color: $white
         background: rgba($white, 0.15)
         border-right: 1px solid rgba($white, 0.05)
         border-left: 1px solid rgba($white, 0.05)
+
       &.selected-application
         background: #68CFED
         border-right: 1px solid #5AC5E7
         border-left: 1px solid #5AC5E7
+
       &.pto i
         +transform(rotate(-45deg))
         text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15)
+
       &.allocations i
         +transform(rotate(90deg))
         text-shadow: 1px 0 1px rgba(0, 0, 0, 0.15)
+
       i
         display: inline-block
         margin: 0 6px 5px 0
+
     a
       color: $white
       text-decoration: none
-      &:hover
-        color: $white
-    @media (max-width: 1000px)
-      .nav-links
-        li
-          padding-right: 15px
-          padding-left: 15px
-        li i
-          display: none
-    @media (max-width: 880px)
-      nav li
-        padding-right: 8px
-        padding-left: 8px
-        font-size: 13px
+
+@media (max-width: 1000px)
+  li
+    padding-right: 15px
+    padding-left: 15px
+  li i
+    display: none
+
+@media (max-width: 880px)
+  li
+    padding-right: 8px
+    padding-left: 8px
+    font-size: 13px
 
 .user-actions
-  float: left
+  margin: 10px 3px 0 0
+  float: right
 
 .global-logout, .global-settings
   cursor: pointer
-  margin: 3px 0 0 0
+  margin: 0 10px 0 0
   float: right
+
   i
     font-size: 44px
 
