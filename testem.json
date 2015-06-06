@@ -1,7 +1,6 @@
 {
   "framework": "qunit",
-  "test_page": "tests/index.html",
-  "cwd": "tmp/output",
+  "test_page": "tests/index.html?hidepassed",
   "launch_in_ci": [
     "PhantomJS"
   ],
