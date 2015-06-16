@@ -55,6 +55,9 @@
 {{#if billable}}
   <div class="revenueTable">
     <h2>Default Weekly Revenue at 100%</h2>
+    {{#if investmentFridays}}
+      <div class="info">For Investment Fridays project set rates to total for 4 billable days</div>
+    {{/if}}
     <div class="table">
       <div class="tableRow tableHeader">
         <div class="tableCell">Engineer</div>

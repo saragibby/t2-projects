@@ -21,7 +21,9 @@
     &:nth-child(even)
       @include omega
     > h2:first-child
-      margin-top: 30px
+      margin-top: 35px
+      margin-bottom: 0px
+      padding-bottom: 10px
     @media (max-width: 768px)
       @include span-columns(12)
       @include omega
@@ -206,10 +208,15 @@ button.pika-prev:hover:not(:disabled)
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==')
     background-color: inherit
     box-shadow: none
-  
+
 table.pika-table
   table-layout: auto
   th:first-child
     padding-left: 0px
   td:first-child
     padding-left: 0px
+
+.info
+  font-style: italic
+  margin-bottom: 10px
+  color: $medium-gray
